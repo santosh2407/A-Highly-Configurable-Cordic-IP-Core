@@ -265,7 +265,7 @@ Where, The `CORDIC_1 above is the inverse of the cordic gain.
 - Dale Drinkard
 - [Xilinx LogiCORE.](https://www.xilinx.com/products/intellectual-property/cordic.html#overview)
 
-- <b>NOTE: We are not attatching any kind of design, testbench, tcl script, sdc fils as we are suppossed to main the privacy of the project. If anyone ahve any doubts regarding the above design please feel free to drop a mail at [Mail.](santosh.achary0706@gmail.com)</b>
+- <b>NOTE: We are not attatching any kind of design, testbench, tcl script, sdc fils as we are suppossed to main the privacy of the project. If anyone ahve any doubts regarding the above design please feel free to drop a mail at santosh.achary0706@gmail.com</b>
  
 
 
