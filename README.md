@@ -45,7 +45,76 @@ Where, S<sub>i</sub> = 0 or 1
 - The cos (θ) term is reduced to a constant K, which is given by the following equation, 
 <img width="399" alt="image" src="https://user-images.githubusercontent.com/99958597/235736229-8f11d695-b3a4-4a9b-b8e9-2fe235e60e4a.png">
 
-**Therefore, the constant K means that the CORDIC function as an overall 
+**As a result, the constant K indicates that the CORDIC function results in an overall gain of the factor 1/K, also known as the CORDIC gain. This may be considered in other areas of the system because it is a constant.**
+
+<h3 align="left">IP CORE Discription:</h3>
+
+- A first quadrant coordinate rotational digital computer technique for computing transcendental functions are realised by the highly customizable CORDIC IP Core. The core can be implemented in RTL in one of three designs using definitions in the source:
+<br>
+<b>1. Combinatorial: </b>
+
+- The combinatorial realisation sacrifices several levels of logic in order to solve equations in one clock cycle.
+-  This option gives a result in a single clock cycle at the expense of very deep logic levels.
+-  The combinatorial implementation runs at about 10 mhz while the iterative ones run at about 125 in a Lattice ECP2 device.
+<br>
+<b>2. Iterative: </b> 
+
+- The problem is divided into a number of iterations using the iterative technique. Using this approach results in less logic, but it requires more clock cycles to finish. This option builds a single ROTATOR. 
+- The user provides the arguments and gives the core ITERATIONS clock cycles to get the result.  A signal named init is instantiated to load the input values.  It uses the least amount of LUTs
+<br>
+<b>3. Pipelined: </b>
+
+- Finally, the pipeline realization takes several clock cycles to complete, but the core can produce a new result on every clock cycle.
+-  This option can take a new input on every clock and gives results ITERATIONS clock cycles later. It uses the most amount of LUTS.
+<br>
+
+<h3 align="left">Modes of Operation:</h3>
+
+This CORDIC IP CORE operates in one of the two modes: 
+<br>
+
+<b>1. Rotate: </b>
+
+- The user provides the core an angle in the rotate mode, and the core computes the sin and cos. Sin/Cos inputs are used. 
+- The core enables computing angles in either radian or degree format in addition to core architecture. Additionally, there are provisions for dealing with variable bit lengths and iterations. The source has a thorough explanation of each of the many "defines."
+-  In this mode the user supplies a X and Y cartesian vector and an angle. The CORDIC rotator seeks to reduce the angle to zero by rotating the vector.
+-  To compute the cos and sin of the angle, set the inputs as follows:<br>
+
+             y_in = 0;
+             x_in = `CORDIC_1
+             theta_in = the input angle 
+             
+             on completion: 
+
+             y_out = sin
+             x_out = cos
+             
+Where, The `CORDIC_1 above is the inverse of the cordic gain. 
+
+<br>
+<b>2. Vector: </b>
+
+- In vector mode, and the computer outputs the arctangent. 
+- In this mode the user supplies the tangent value in x and y and the rotator seeks to minimize the y value, thus computing the angle.
+- To compute the arctan set the inputs as follows:
+-  y_in and x_in  such that y/x = the tangent value for which you wish to find the angle 
+
+             theta_in = 0;
+             
+             on completion
+             
+             theta_out = the angle
+             
+<h3 align="left">CORDIC IP CORE Implementation:</h3>
+ 
+
+
+
+
+
+
+
+
 
 
 
