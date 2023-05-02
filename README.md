@@ -35,6 +35,7 @@ Where, S<sub>i</sub> = 0 or 1
 - Lets go back to the equation 2, , and given that the angle θ can be represented as a weighted sum (3). We can represent the rotation from (x<sub>i</sub> to  y<sub>i</sub>) as a sequence of smaller rotations where the n+1 rotational coordinate is derived from the n<sup>th</sup> coordinate using the following equation: 
 
 <img width="410" alt="image" src="https://user-images.githubusercontent.com/99958597/235734096-7f3bf2c0-96f6-47b2-9c34-4b96e79851df.png">
+
 - By replacing the equation 4 into equation 5 we are replacing the tangent function divided by 2<sup>n</sup>, which is a simple shift operatopn. 
 <img width="422" alt="image" src="https://user-images.githubusercontent.com/99958597/235734960-d0534396-daa3-4cf8-a8c8-4c0473d256f1.png">
 
@@ -106,6 +107,165 @@ Where, The `CORDIC_1 above is the inverse of the cordic gain.
              theta_out = the angle
              
 <h3 align="left">CORDIC IP CORE Implementation:</h3>
+<h4 align="left">1. Functional Verification: </h4>
+- This is the first step of the implementation of the CORDIC IP CORE, where I have written a piece of verilog code and performed functional verification by using a tool called <b>Cadence NC Launch.</b>
+
+
+![Screenshot from 2023-05-01 07-02-37](https://user-images.githubusercontent.com/99958597/235753209-039d3614-d0bb-4be5-9d07-2ddbc75dd4a0.png)
+
+![Screenshot from 2023-05-01 06-54-53](https://user-images.githubusercontent.com/99958597/235754071-4ec93dfc-b2f2-4374-be8b-2f674e69ebbd.png)
+
+- After compiling and elaborating the verilog design when it is free from all the errors, then we have verified the functionality of the design with the help of the waveforms generated. 
+
+<h4 align="left">2. Gate Level Synthesis and Geneartion of Netlist: </h4>
+
+- After successful verification of the functionality of the desired design then we need to generate the gate level netlist for the proceeding into the further steps. This step is performed by using a tool named <b>Cadence Genus.</b>  
+
+![Screenshot from 2023-05-01 07-31-30](https://user-images.githubusercontent.com/99958597/235755081-d8870aea-407c-4826-9b0c-0b6554505e22.png)
+
+![Screenshot from 2023-05-01 07-31-56](https://user-images.githubusercontent.com/99958597/235755572-b051724c-52e0-4ce0-b808-1ca3061dfa72.png)
+
+![Screenshot from 2023-05-01 07-32-01](https://user-images.githubusercontent.com/99958597/235755646-6acf39ba-5441-41f3-a557-7ff27f8634b2.png)
+
+
+- The above images represents the schematic of the CORDIC IP CORE. 
+- To perfrom complete the synthesis process mainly we need three files. <br>
+
+<b>1. Verilog Design File.</b><br>
+
+<b>2. Input SDC File, describing all the design constraints and timing assignments.</b><br>
+
+<b>3. A Library File, which contains all the standard cells information. This file will be provided by the Cadence tool itself.</b><br>
+
+<b>4. A TCL Script to automate the process. This file is optional</b><br>
+
+<h5 align="left"><b>Output  Files: </b></h5>
+
+- The outputs files obtained in this Synthesis process will be, <br>
+
+<b>1. Output SDC File.</b><br>
+
+<b>2. A Netlist File.</b><br>
+
+<b>3. Analysis Reports.</b><br>
+
+<h4 align="left">3. Physical Design: </h4>
+
+- This is the main step of this project, where we have performed the designing process by using the concepts like Floor Planning, Power Planning, Placement, Routing, and so on. To perform this step we have used a tool called <b>Cadence Innovus.</b>
+
+<h5 align="left"><b>I. Floor Planning: </b></h5>
+
+- Floorplanning is a crucial step in the physical design process of VLSI circuits. It involves arranging and placing the functional blocks of a digital design on a chip, while considering various design constraints such as area, power, timing, signal integrity, and manufacturability.
+- The success of the overall physical design of the VLSI circuit depends heavily on the quality of the floorplan. 
+
+![Screenshot from 2023-05-01 08-10-15](https://user-images.githubusercontent.com/99958597/235760502-7d0a4fef-257d-45e8-8129-8ecf1ba945a7.png)
+
+
+<h5 align="left"><b>II. Power Planning: </b></h5>
+
+- Power planning involves dividing the chip into power domains, which are isolated from each other to avoid power distribution issues such as voltage drop, ground bounce, and noise coupling. Power Planning involves 3 steps:<br>
+
+<b>1. Adding Power Rings.</b><br>
+
+<b>2. Adding Power Strips.</b><br>
+
+<b>3. Adding Special Routes.</b><br>
+
+<h5 align="left"><b>III. Placement: </b></h5>
+
+- VLSI circuits that involves determining the optimal location of each functional block on the chip. The goal of placement is to minimize the total wire length between the functional blocks, while meeting the design constraints such as area, power, timing, and signal integrity.
+- During placement, the functional blocks are initially placed randomly within the chip area. 
+
+![Screenshot from 2023-05-01 08-25-34](https://user-images.githubusercontent.com/99958597/235762182-25c55b7e-0358-4bf4-b00b-1806f4dd4e6a.png)
+
+![Screenshot from 2023-05-02 17-56-08 (copy)](https://user-images.githubusercontent.com/99958597/235762375-c94c251a-3366-4a45-875f-51edd9666653.png)
+
+<h5 align="left"><b>IV. Routing: </b></h5>
+
+- Routing is a critical step in the physical design process of VLSI circuits that involves the creation of interconnects between the functional blocks placed on the chip. The goal of routing is to connect the input and output pins of the functional blocks in an optimal way, while satisfying various design constraints such as area, power, timing, and signal integrity.
+
+<h5 align="left"><b>V. Static Timing Analysis: </b></h5>
+
+- This step of is performed by using a tool called <b>Cadence Tempus.</b>
+- STA is used to verify the timing constraints of the design, such as setup time, hold time, and clock period, and ensure that the design meets the desired performance specifications.
+
+<img width="561" alt="image" src="https://user-images.githubusercontent.com/99958597/235765467-8a0038bb-9888-48cc-813f-11d00f47a5d6.png">
+
+- Before Optimization: 
+<img width="353" alt="image" src="https://user-images.githubusercontent.com/99958597/235764272-fb37ef79-6ce5-4dbb-82b0-efb25e1bb474.png">
+
+- After Optimization: 
+<img width="405" alt="image" src="https://user-images.githubusercontent.com/99958597/235764578-3237e891-04a5-494a-9c5f-6e8a59002c77.png">
+
+<h3 align="left">Area Analysis:</h3>
+
+<img width="537" alt="image" src="https://user-images.githubusercontent.com/99958597/235764947-6ec9a285-c383-48bc-98c9-a53c995b8743.png">
+
+<img width="302" alt="image" src="https://user-images.githubusercontent.com/99958597/235765235-086cae51-5e90-4c16-b0ed-1f355ac50665.png">
+          
+<h3 align="left">Power Analysis:</h3>
+
+<img width="548" alt="image" src="https://user-images.githubusercontent.com/99958597/235765633-291f0f8f-5101-4e49-a6ff-81d9cbefd64b.png">
+
+<img width="607" alt="image" src="https://user-images.githubusercontent.com/99958597/235765749-ca7fd54c-c863-4350-a2ff-3239b9deb466.png">
+
+<h3 align="left">Final Results:</h3>
+
+![Screenshot from 2023-05-02 17-54-04](https://user-images.githubusercontent.com/99958597/235766189-195aba5b-27fe-476a-9f46-12657933af33.png)
+
+![Screenshot from 2023-05-02 17-53-48](https://user-images.githubusercontent.com/99958597/235766256-514505a4-c58e-4ffc-bfad-7fbe3882a27e.png)
+
+![Screenshot from 2023-05-01 10-09-23](https://user-images.githubusercontent.com/99958597/235766334-e53395b3-3fd1-497c-a39d-d889a6bd4e32.png)
+
+<h5 align="left"><b>3D View of the Design: </b></h4>
+
+![Screenshot from 2023-05-01 10-20-18](https://user-images.githubusercontent.com/99958597/235766623-a9122c48-a413-4932-adf6-d82c75ac30e4.png)
+
+![Screenshot from 2023-05-01 10-20-43](https://user-images.githubusercontent.com/99958597/235766680-dbc75d31-4554-4c85-aeed-79c5a53acd7b.png)
+
+<h3 align="left">Conclusion:</h3>
+
+- Therefore, A highly configurable Cordic IP Core has been designed and various parameters has been analysed and observed. 
+- The maximum frequency obtained in different architectures are listed below, 
+
+<table>
+        <thead>
+            <tr>
+                <th>Architecture</th><th>Maximum Frequency</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Combinational</td><td>9 MHz</td>
+            </tr>
+            <tr>
+                <td>Iterative</td><td>125 MHz</td>
+            </tr>
+            <tr>
+                <td>Pipelined</td><td>130 MHz</td>
+            </tr>
+        </tbody>
+    </table>
+
+<h5 align="left"><b>Design Summary: </b></h5>
+
+<img width="202" alt="image" src="https://user-images.githubusercontent.com/99958597/235768906-8b8c0e6b-3d86-44bd-9752-eec933c3a5ad.png">
+
+<h5 align="left"><b>Design Statistics:</b></h5>
+
+<img width="295" alt="image" src="https://user-images.githubusercontent.com/99958597/235769155-ea8be8f9-4907-4a22-9d3f-ac1d536af276.png">
+
+<h5 align="left"><b>I/O Port Summary:</b></h5>
+
+<img width="464" alt="image" src="https://user-images.githubusercontent.com/99958597/235769385-e99b647c-6477-43a6-b98e-8f8128c9b88c.png">
+
+<h3 align="left">Acknowledgement:</h3>
+
+- KL University. 
+- Dale Drinkard
+- [Xilinx LogiCORE.](https://www.xilinx.com/products/intellectual-property/cordic.html#overview)
+
+
  
 
 
