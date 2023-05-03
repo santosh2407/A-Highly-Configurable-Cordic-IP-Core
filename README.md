@@ -160,6 +160,9 @@ Where, The `CORDIC_1 above is the inverse of the cordic gain.
 
 ![Screenshot from 2023-05-01 08-10-15](https://user-images.githubusercontent.com/99958597/235760502-7d0a4fef-257d-45e8-8129-8ecf1ba945a7.png)
 
+![Screenshot from 2023-05-03 09-59-15](https://user-images.githubusercontent.com/99958597/235967187-fe56b0fe-c74e-4199-9faf-b03e53b9453b.png)
+
+
 
 <h5 align="left"><b>II. Power Planning: </b></h5>
 
@@ -171,6 +174,11 @@ Where, The `CORDIC_1 above is the inverse of the cordic gain.
 
 <b>3. Adding Special Routes.</b><br>
 
+![Screenshot from 2023-05-01 11-54-58](https://user-images.githubusercontent.com/99958597/235967738-ee2b5bde-e200-4e91-b156-1639f61a85ba.png)
+
+![Screenshot from 2023-05-03 10-04-55](https://user-images.githubusercontent.com/99958597/235967834-59f89e49-119b-4585-814d-942f3e2781ab.png)
+
+
 <h5 align="left"><b>III. Placement: </b></h5>
 
 - VLSI circuits that involves determining the optimal location of each functional block on the chip. The goal of placement is to minimize the total wire length between the functional blocks, while meeting the design constraints such as area, power, timing, and signal integrity.
@@ -179,6 +187,9 @@ Where, The `CORDIC_1 above is the inverse of the cordic gain.
 ![Screenshot from 2023-05-01 08-25-34](https://user-images.githubusercontent.com/99958597/235762182-25c55b7e-0358-4bf4-b00b-1806f4dd4e6a.png)
 
 ![Screenshot from 2023-05-02 17-56-08 (copy)](https://user-images.githubusercontent.com/99958597/235762375-c94c251a-3366-4a45-875f-51edd9666653.png)
+
+![Screenshot from 2023-05-03 10-13-31](https://user-images.githubusercontent.com/99958597/235967354-0797188d-2ee5-4798-bbf0-f3b9d256dda9.png)
+
 
 <h5 align="left"><b>IV. Routing: </b></h5>
 
