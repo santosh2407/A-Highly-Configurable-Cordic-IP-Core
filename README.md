@@ -270,6 +270,14 @@ Where, The `CORDIC_1 above is the inverse of the cordic gain.
 
 <img width="464" alt="image" src="https://user-images.githubusercontent.com/99958597/235769385-e99b647c-6477-43a6-b98e-8f8128c9b88c.png">
 
+<h3 align="left">EDA Tools Used:</h3>
+
+- Xilinx Vivado
+- Cadence NC Launch 
+- Cadence Genus
+- Cadence Innovus
+- Cadence Tempus 
+
 <h3 align="left">Acknowledgement:</h3>
 
 - KL University. 
