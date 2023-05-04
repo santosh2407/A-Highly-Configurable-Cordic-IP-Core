@@ -108,7 +108,7 @@ Where, The `CORDIC_1 above is the inverse of the cordic gain.
              
 <h3 align="left">CORDIC IP CORE Implementation:</h3>
 <h4 align="left">1. Functional Verification: </h4>
-- This is the first step of the implementation of the CORDIC IP CORE, where I have written a piece of verilog code and performed functional verification by using a tool called <b>Cadence NC Launch.</b>
+- This is the first step of the implementation of the CORDIC IP CORE, where I have written a piece of verilog code and performed functional verification by using a tool called <b>Cadence Incisive.</b>
 
 
 ![Screenshot from 2023-05-01 07-02-37](https://user-images.githubusercontent.com/99958597/235753209-039d3614-d0bb-4be5-9d07-2ddbc75dd4a0.png)
@@ -273,7 +273,7 @@ Where, The `CORDIC_1 above is the inverse of the cordic gain.
 <h3 align="left">EDA Tools Used:</h3>
 
 - Xilinx Vivado
-- Cadence NC Launch 
+- Cadence Incisive 
 - Cadence Genus
 - Cadence Innovus
 - Cadence Tempus 
