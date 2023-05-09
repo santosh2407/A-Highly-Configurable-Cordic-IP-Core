@@ -2,7 +2,7 @@
 
 <h3 align="left">Introduction:</h3>
 <p align="left"> 
-This project mainly focuses on the implementation of CORDIC Algorithm. The word CORDIC is the abbreviation of Coordinate Rotation Digital Computer, which is an algorithm that is commonly used to calculate various mathematical functions, including trigonometric, logarithmic, and exponential functions. A CORDIC IP Core is a specialized hardware component that is designed to implement the CORDIC algorithm. The method can also be easily extended to compute square roots as well as hyperbolic functions.</p>
+This project mainly focuses on the implementation of CORDIC Algorithm using Physical Design Flow. The word CORDIC is the abbreviation of Coordinate Rotation Digital Computer, which is an algorithm that is commonly used to calculate various mathematical functions, including trigonometric, logarithmic, and exponential functions. A CORDIC IP Core is a specialized hardware component that is designed to implement the CORDIC algorithm. The method can also be easily extended to compute square roots as well as hyperbolic functions.</p>
 <p align="left">
 The algorithm works by reducing the calculation into a number of micro-rotations for which the arctangent value is precomputed and loaded in a table. This method reduces the computation to addition, subtraction, compares, and shifts. All functions easily performed by FPGAs.
 CORDIC cores are commonly used in digital signal processing (DSP) applications, such as in the design of filters, modulators, and demodulators. They can also be used in other applications that require high-speed and low-power processing of complex mathematical functions, such as in the fields of image and video processing, telecommunications, and cryptography.
