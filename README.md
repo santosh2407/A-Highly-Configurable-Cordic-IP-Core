@@ -48,7 +48,7 @@ Where, S<sub>i</sub> = 0 or 1
 
 **As a result, the constant K indicates that the CORDIC function results in an overall gain of the factor 1/K, also known as the CORDIC gain. This may be considered in other areas of the system because it is a constant.**
 
-<h3 align="left">IP CORE Discription:</h3>
+<h3 align="left">IP CORE Description:</h3>
 
 - A first quadrant coordinate rotational digital computer technique for computing transcendental functions are realised by the highly customizable CORDIC IP Core. The core can be implemented in RTL in one of three designs using definitions in the source:
 <br>
