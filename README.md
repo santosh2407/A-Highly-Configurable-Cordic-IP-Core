@@ -239,7 +239,7 @@ Where, The `CORDIC_1 above is the inverse of the cordic gain.
 - Therefore, A highly configurable Cordic IP Core has been designed and various parameters has been analysed and observed. 
 - The maximum frequency obtained in different architectures are listed below, 
 
-<table>
+<table align = "center">
         <thead>
             <tr>
                 <th>Architecture</th><th>Maximum Frequency</th>
